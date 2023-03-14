@@ -28,6 +28,18 @@ from nltk.stem import PorterStemmer        # module for stemming
 from nltk.tokenize import TweetTokenizer   # module for tokenizing strings
 ```
 
+* Remove hyperlinks, twitter marks and styles\
+```
+# remove old style retweet text "RT"
+tweet2 = re.sub(r'^RT[\s]+', '', tweet)
+
+# remove hyperlinks
+tweet2 = re.sub(r'https?://[^\s\n\r]+', '', tweet2)
+
+# remove hashtags
+# only removing the hash # sign from the word
+tweet2 = re.sub(r'#', '', tweet2)
+```
 * Tokenize the string\
 To tokenize means to split the strings into individual words without blanks or tabs.
 ```
